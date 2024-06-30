@@ -14,4 +14,19 @@
       <ion-title size="large">lista Productos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list>
+    @for (producto of listaProductos; track producto.id) {
+
+      <ion-item button [routerLink] ="['/detalle-producto']">
+        <ion-thumbnail slot="start">
+          <img [src]="producto.imagen" />
+        </ion-thumbnail>
+        <ion-label>{{producto.nombre}}</ion-label>
+      </ion-item>
+
+    }
+
+  </ion-list>
+
 </ion-content>
