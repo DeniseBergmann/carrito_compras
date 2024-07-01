@@ -15,8 +15,17 @@ export class CarritoComprasService {
   todosProductos(){
     return this.httpClient.get<RespuestaProductos>(this.urlBase+ 'producto/all/');
   }
+
+  getProducto(id:number){
+    return this.httpClient.get<RespuestaProducto>(this.urlBase+ 'producto/'+id);
+  }
+
 }
 
 export interface RespuestaProductos extends Respuesta{
+  data: Producto[];
+}
+
+export interface RespuestaProducto extends Respuesta{
   data: Producto[];
 }

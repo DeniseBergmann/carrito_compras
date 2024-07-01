@@ -1,13 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-buttons slot="start" [routerLink]="['/lista-productos']">
+      <ion-icon src="../../assets/icon/caret-back-outline.svg"></ion-icon>
     </ion-buttons>
 
-    <ion-title>detalleProducto</ion-title>
+    <ion-title>Detalle de Producto</ion-title>
 
   </ion-toolbar>
 </ion-header>
+
+<ion-img
+  src="https://docs-demo.ionic.io/assets/madison.jpg"
+></ion-img>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -15,4 +19,12 @@
       <ion-title size="large">detalleProducto</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
 </ion-content>
+<ion-footer>
+  <ion-button expand="block">
+    AGREGAR AL CARRITO
+    <ion-icon src="../../assets/icon/cart.svg"></ion-icon>
+  </ion-button>
+</ion-footer>
