@@ -13,15 +13,14 @@ import { Producto } from '../interfaces/Producto';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
-export class DetalleProductoPage implements OnInit {
-  private carritoComprasService = inject(CarritoComprasService);
-  producto: Producto [] = [];
-
-  ngOnInit(): void {
-    this.consultarProducto();
+export class DetalleProductoPage {
+  private carritoComprasService: CarritoComprasService = inject(CarritoComprasService);
+  producto: Producto|undefined;
+  constructor(){
+    this.consultaProducto();
   }
 
-  consultarProducto() {
+  consultaProducto(){
     this.carritoComprasService.getProducto(1).subscribe(data => {
       this.producto = data.data;
     });

@@ -27,5 +27,5 @@ export interface RespuestaProductos extends Respuesta{
 }
 
 export interface RespuestaProducto extends Respuesta{
-  data: Producto[];
+  data: Producto;
 }
