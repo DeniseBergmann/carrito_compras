@@ -32,19 +32,19 @@
   <ion-toolbar>
 
     <ion-buttons slot="start">
-      <ion-button size="large">
+      <ion-button size="large" (click)="restar()">
         <ion-icon src="../../assets/icon/remove-circle-outline.svg"></ion-icon>
       </ion-button>
     </ion-buttons>
 
     <ion-title [style]="'text-align:center'">
       <ion-button shape="round">
-        1
+        {{cantidad}}
       </ion-button>
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button size="large">
+      <ion-button size="large" (click)="sumar()">
         <ion-icon src="../../assets/icon/add-circle-outline.svg"></ion-icon>
       </ion-button>
     </ion-buttons>

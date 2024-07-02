@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CarritoComprasService } from '../servicios/CarritoCompras.service';
 import { Producto } from '../interfaces/Producto';
 
@@ -15,14 +15,29 @@ import { Producto } from '../interfaces/Producto';
 })
 export class DetalleProductoPage {
   private carritoComprasService: CarritoComprasService = inject(CarritoComprasService);
+  private activeRoute:ActivatedRoute = inject(ActivatedRoute);
   producto: Producto|undefined;
+  cantidad: number = 1;
+
   constructor(){
-    this.consultaProducto();
+
+    this.activeRoute.params.subscribe(params => {
+      this.carritoComprasService.getProducto(params['id_producto']).subscribe(data => {
+        this.producto = data.data;
+      });
+    });
+
   }
 
-  consultaProducto(){
-    this.carritoComprasService.getProducto(1).subscribe(data => {
-      this.producto = data.data;
-    });
+  sumar(){
+    this.cantidad++;
   }
+
+  restar(){
+    if((this.cantidad - 1) == 0){
+      return;
+    }
+    this.cantidad--;
+  }
+
 }
